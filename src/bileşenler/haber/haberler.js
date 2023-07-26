@@ -115,3 +115,61 @@ const data = [
   Adım 5: Veri dizisine yeni haber nesnesi eklemeyi deneyin. Diğer verilerle aynı yapıda olmasına dikkat edin.
   Eklediğiniz yeni haberi görmek için sayfayı yenileyin.
 */
+function haberYapici(
+  baslik,
+  tarih,
+  İlkParagraf,
+  İkinciParagraf,
+  ucuncuParagraf
+) {
+  const div1 = document.createElement("div");
+  div1.setAttribute("class", "article");
+
+  const haberbaslik = document.createElement("h2");
+  haberbaslik.textContent = baslik;
+
+  const date = document.createElement("p");
+  date.setAttribute("class", "tarih");
+  date.textContent = tarih;
+
+  const paragrafbir = document.createElement("p");
+  paragrafbir.textContent = İlkParagraf;
+
+  const paragrafiki = document.createElement("p");
+  paragrafiki.textContent = İkinciParagraf;
+
+  const paragrafuc = document.createElement("p");
+  paragrafuc.textContent = ucuncuParagraf;
+
+  const btn1 = document.createElement("button");
+  btn1.setAttribute("class", "expandButton");
+
+  btn1.addEventListener("click", (e) => {
+    e.classList.toggle("article-open");
+  });
+
+  div1.append(haberbaslik);
+
+  div1.append(date);
+  div1.append(paragrafbir);
+  div1.append(paragrafiki);
+  div1.append(paragrafuc);
+  div1.append(btn1);
+
+  return div1;
+}
+console.log(data);
+
+const headdiv = document.querySelector(".articles");
+
+data.forEach((datax) => {
+  const card = haberYapici(
+    datax.baslik,
+    datax.tarih,
+    datax.ilkParagraf,
+    datax.ikinciParagraf,
+    datax.ucuncuParagraf
+  );
+
+  headdiv.append(card);
+});
