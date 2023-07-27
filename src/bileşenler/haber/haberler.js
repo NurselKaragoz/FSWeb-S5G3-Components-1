@@ -145,7 +145,7 @@ function haberYapici(
   btn1.setAttribute("class", "expandButton");
 
   btn1.addEventListener("click", (e) => {
-    e.classList.toggle("article-open");
+    e.ctoggle("article-open");
   });
 
   div1.append(haberbaslik);
